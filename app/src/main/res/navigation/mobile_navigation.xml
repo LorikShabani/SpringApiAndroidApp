@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_login">
+
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.cacttuseducation.lorikshabani_project_2.ui.register.RegisterFragment"
+        android:label="REGISTER"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_nav_register_to_nav_login"
+            app:destination="@id/nav_login"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.cacttuseducation.lorikshabani_project_2.ui.login.LoginFragment"
+        android:label="LOGIN"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_nav_login_to_nav_register"
+            app:destination="@id/nav_register"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_nav_login_to_loginCodeFragment"
+            app:destination="@id/nav_login_code"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left">
+            <argument
+                android:name="email"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_nav_login_to_nav_blog"
+            app:destination="@id/nav_blog" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_blog"
+        android:name="com.cacttuseducation.lorikshabani_project_2.ui.blog.BlogFragment"
+        android:label="BLOG"
+        tools:layout="@layout/fragment_blog" >
+        <action
+            android:id="@+id/action_nav_blog_to_nav_login"
+            app:destination="@id/nav_login"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_bottom" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/nav_login_code"
+        android:name="com.cacttuseducation.lorikshabani_project_2.ui.login.LoginCodeFragment"
+        android:label="CODE ACTIVATION"
+        tools:layout="@layout/fragment_login_code" >
+        <action
+            android:id="@+id/action_loginCodeFragment_to_nav_blog"
+            app:destination="@id/nav_blog"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top" />
+    </fragment>
+</navigation>
